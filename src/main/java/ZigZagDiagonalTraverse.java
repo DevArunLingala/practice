@@ -36,7 +36,7 @@ public class ZigZagDiagonalTraverse {
 
         int patI = 0;
 
-        int diagonalNumber = (rows == 1||columns == 1) ? rows * columns : (rows * columns) - 1;
+        int diagonalNumber = (rows + columns) - 1;
 
         for (int dI = 0; dI < diagonalNumber; dI++) {
             int i, j;
