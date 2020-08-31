@@ -15,7 +15,23 @@ public class RecursivelyRemoveAdjacentDuplicates {
     }
 
     private static void remove(String str) {
-        System.out.println(remove(str, 0));
+        System.out.println(removeV1(str, 0));
+    }
+
+
+    private static String removeV1(String str, int pos) {
+        if (pos < 0 || pos >= str.length()) {
+            return str;
+        }
+        int end = pos;
+        while(end < str.length() && str.charAt(end) == str.charAt(pos)) {
+            end++;
+        }
+        if (end - pos > 1) {
+            String manipulatedStrt =  removeV1(str.substring(0, pos) + str.substring(end), pos + 1);
+            return removeV1(manipulatedStrt, pos - 1);
+        }
+        return removeV1(str, pos + 1);
     }
 
     private static String remove(String str, int i) {
